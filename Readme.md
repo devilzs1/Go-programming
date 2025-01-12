@@ -43,15 +43,19 @@ Before you can run any project, make sure you have Go installed on your system. 
 
 You can clone this repository to your local machine using: 
 
+``` bash
 git clone https://github.com/devilzs1/Go-programming.git 
 cd Go-programming 
+```
 
 ### Run a Project 
 
 1. Navigate to the specific project directory inside the `Projects/` folder. 
 2. Run the Go application by using: 
 
+``` bash
 go run main.go 
+```
 
 3. Visit the appropriate URL in your browser (usually `http://localhost:4000` or as specified in each project's README). 
 
