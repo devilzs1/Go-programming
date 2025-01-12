@@ -3,13 +3,13 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"strconv"
 	"time"
 
 	"github.com/gorilla/mux"
 	"golang.org/x/exp/rand"
-	"gopkg.in/DataDog/dd-trace-go.v1/contrib/gorilla/mux"
 )
 
 
@@ -37,6 +37,21 @@ func (c *Course) isEmpty() bool{
 
 func main() {
 	fmt.Println("Learning API's using GO Programming")
+
+	r := mux.NewRouter()
+
+	courses = append(courses, Course{CourseId: "course-1234", CourseName: "AI-2025", Price: 99, Owner: &Owner{Name : "Adil", Portfolio : "github.com/devilzs1"}})
+	courses = append(courses, Course{CourseId: "course-2345", CourseName: "Web-2025", Price: 199, Owner: &Owner{Name : "XYZ", Portfolio : "go.dev"}})
+
+	r.HandleFunc("/", serveHome).Methods("GET")
+	r.HandleFunc("/courses", getCourses).Methods("GET")
+	r.HandleFunc("/course/{id}", getCourse).Methods("GET")
+	r.HandleFunc("/course/create", createCourse).Methods("POST")
+	r.HandleFunc("/course/{id}", updateCourse).Methods("PUT")
+	r.HandleFunc("/course/{id}", deleteCourse).Methods("DELETE")
+
+	log.Fatal(http.ListenAndServe(":4000", r))
+
 }
 
 // controllers - file
@@ -66,7 +81,6 @@ func getCourse(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	json.NewEncoder(w).Encode("No course found with the given id")
-	return
 }
 
 func createCourse(w http.ResponseWriter, r *http.Request) {
@@ -79,18 +93,24 @@ func createCourse(w http.ResponseWriter, r *http.Request) {
 
 	var course Course
 	_ = json.NewDecoder(r.Body).Decode(&course)
+
 	if course.isEmpty(){
 		json.NewEncoder(w).Encode("404 Bad Request! Invalid Request Payload - No data inside payload JSON")
 		return
 	}
 
+	for _, existingCourse :=range courses{
+		if course.CourseName == existingCourse.CourseName {
+			json.NewEncoder(w).Encode("Course with the same name already exists!")
+			return
+		}
+	}
 
 	// generate unique course ID
-	rand.Seed(time.Now().UnixMilli())
+	rand.Seed(uint64(time.Now().UnixMilli()))
 	course.CourseId = strconv.Itoa(rand.Intn(100))
 	courses = append(courses, course)
 	json.NewEncoder(w).Encode(course)
-	return
 }
 
 func updateCourse(w http.ResponseWriter, r *http.Request){
@@ -119,12 +139,12 @@ func updateCourse(w http.ResponseWriter, r *http.Request){
 
 
 	// 2
-	var updatedCourse Course
-	updatedCourse.CourseId = params["id"]
-	courses = append(courses, updatedCourse)
-	json.NewEncoder(w).Encode(courses)
+	// var updatedCourse Course
+	// updatedCourse.CourseId = params["id"]
+	// courses = append(courses, updatedCourse)
+	// json.NewEncoder(w).Encode(courses)
 
-	return
+	// return
 }
 
 
@@ -143,5 +163,4 @@ func deleteCourse(w http.ResponseWriter, r *http.Request){
 		}
 	}
 	json.NewEncoder(w).Encode("No course found with the given id")
-	return
 }
