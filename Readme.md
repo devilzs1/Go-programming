@@ -64,7 +64,7 @@ go run main.go
 ## Project Structure 
 
 The directory structure of the repository looks like this: 
-
+``` bash
 Go-programming/ 
 ├── README.md 
 ├── projects/ 
@@ -81,6 +81,8 @@ Go-programming/
 │       ├── main.go 
 │       └── /controllers 
 └── LICENSE 
+
+```
 
 - **`projects/`**: Contains the subdirectories for each individual project. 
 - **`main.go`**: The entry point for each project. 
