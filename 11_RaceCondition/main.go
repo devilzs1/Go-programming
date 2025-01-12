@@ -11,10 +11,10 @@ func main() {
 	var score = []int{0}
 
 	wg := &sync.WaitGroup{}
-	mut := &sync.Mutex{}
+	mut := &sync.RWMutex{}
 
-	wg.Add(3)
-	go func(wg *sync.WaitGroup, mut *sync.Mutex) {
+	wg.Add(4)
+	go func(wg *sync.WaitGroup, mut *sync.RWMutex) {
 		fmt.Println("R-1")
 		mut.Lock()
 		score = append(score, 1)
@@ -22,7 +22,7 @@ func main() {
 		wg.Done()
 	}(wg, mut)
 	// wg.Add(1)
-	go func(wg *sync.WaitGroup, mut *sync.Mutex) {
+	go func(wg *sync.WaitGroup, mut *sync.RWMutex) {
 		fmt.Println("R-2")
 		mut.Lock()
 		score = append(score, 2)
@@ -30,14 +30,21 @@ func main() {
 		wg.Done()
 	}(wg, mut)
 	// wg.Add(1)
-	go func(wg *sync.WaitGroup, mut *sync.Mutex) {
+	go func(wg *sync.WaitGroup, mut *sync.RWMutex) {
 		fmt.Println("R-3")
 		mut.Lock()
 		score = append(score, 3)
 		mut.Unlock()
 		wg.Done()
 	}(wg, mut)
+	// wg.Add(1)
+	go func(wg *sync.WaitGroup, mut *sync.RWMutex) {
+		fmt.Println("R-4")
+		mut.RLock()
+		fmt.Println(score)
+		mut.RUnlock()
+		wg.Done()
+	}(wg, mut)
 
 	wg.Wait()
-	fmt.Println(score)
 }
