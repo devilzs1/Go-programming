@@ -100,7 +100,7 @@ Here are some of the projects included in this repository:
 - Implements routing and serves static files. 
 - Demonstrates simple request handling and responses in Go. 
 
-### 2. **Project-1: BookStore Management** 
+### 2. **Project-2: BookStore Management** 
 - A basic HTTP web server using the `net/http` package. 
 - Implements routing and serves static files. 
 - Demonstrates using MySQL and Go : "github.com/jinzhu/gorm", "github.com/jinzhu/gorm/dialects/mysql"
