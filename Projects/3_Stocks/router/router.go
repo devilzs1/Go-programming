@@ -15,4 +15,6 @@ func Router() *mux.Router{
 	router.HandleFunc("/stock/{stockId}", controller.UpdateStock).Methods("PUT")
 	router.HandleFunc("/stock/{stockId}", controller.DeleteStock).Methods("DELETE")
 	router.HandleFunc("/stock/{stockId}", controller.GetStockById).Methods("GET")
+
+	return router
 }
