@@ -105,6 +105,25 @@ Here are some of the projects included in this repository:
 - Implements routing and serves static files. 
 - Demonstrates using MySQL and Go : "github.com/jinzhu/gorm", "github.com/jinzhu/gorm/dialects/mysql"
 
+## Project-3: Stocks Management System
+A web application built using Go and PostgreSQL.
+- Uses PostgreSQL as the database for managing stock information.
+- Demonstrates CRUD operations for stocks, including adding, updating, and deleting stock entries.
+
+## Project-4: Event-Driven Architecture with Kafka
+A real-time event-driven system built using Go and Apache Kafka.
+- Implements event-driven communication with Apache Kafka as the messaging system.
+- Built to handle high-throughput, real-time messaging between services.
+- Demonstrates the producer-consumer model using Go and Kafka.
+
+## Project-5: Messaging System with RabbitMQ
+A messaging system built with Go and RabbitMQ.
+- Implements message queues for asynchronous processing using RabbitMQ.
+- Built to handle reliable message delivery and processing.
+- Demonstrates how to send and receive messages with RabbitMQ using Go.
+
+---
+
 Feel free to check the individual README files for more detailed information about each project. 
 
 --- 
@@ -115,6 +134,7 @@ This repository utilizes the following technologies and tools:
 
 - **Go**: The core programming language. 
 - **gorilla/mux**: A powerful HTTP router for Go. 
+- **fiber**: A advanced web framework similar to Express for Go. 
 - **MongoDB**: NoSQL database used for some of the projects.  
 - **MySQL**: MySQL database used for some of the projects.  
 
