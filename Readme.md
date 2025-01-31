@@ -124,6 +124,41 @@ A messaging system built with Go and RabbitMQ.
 
 ---
 
+## 6. **Rate-Limiter-Go**: Rate Limiting in Go
+A rate-limiting application built using Go to control the number of requests within a specified time window.
+
+- Demonstrates rate-limiting techniques in Go.
+- Useful for building APIs that need to enforce limits on user requests.
+- Implements various rate-limiting algorithms (e.g., token bucket, leaky bucket).
+
+---
+
+## 7. **GraphQL-MongoDB-Go**: GraphQL with MongoDB and Go
+A Go-based API implementing GraphQL and MongoDB integration.
+
+- Demonstrates building a GraphQL API using Go.
+- Uses MongoDB for data storage and querying.
+- Provides an example of building a flexible, efficient API with GraphQL.
+
+---
+
+## 8. **gRPC-Go**: gRPC Service with Go
+A gRPC-based service implemented using Go.
+
+- Demonstrates the use of gRPC to create efficient and scalable APIs.
+- Includes gRPC server and client examples in Go.
+- Designed for high-performance, low-latency communication between services.
+
+---
+
+## 9. **Docker_Go**: Dockerized Go Application
+A Go application containerized with Docker for deployment.
+
+- Demonstrates how to set up a Go application in a Docker container.
+- Includes a Dockerfile and instructions for building and running the app in Docker.
+- Focuses on deployment and containerization best practices.
+
+
 Feel free to check the individual README files for more detailed information about each project. 
 
 --- 
