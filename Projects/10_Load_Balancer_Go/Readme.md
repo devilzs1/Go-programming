@@ -1,4 +1,4 @@
-# Go Load Balancer
+# Load Balancer built using Go Programming Language
 
 This project demonstrates a simple **Round-Robin Load Balancer** implemented in **Go**. The load balancer proxies incoming HTTP requests to multiple backend servers.
 
