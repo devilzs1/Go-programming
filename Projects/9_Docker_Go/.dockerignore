@@ -1,0 +1,15 @@
+# Ignore Go build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Ignore version control files
+.git
+.gitignore
+
+# Ignore module cache
+vendor/
