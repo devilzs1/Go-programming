@@ -26,8 +26,6 @@ func (s *helloServer) SayHelloBiDirectionalStreaming(stream pb.GreetService_SayH
 			log.Fatalf("Error sending response : %v", err)
 			return err
 		}
-		
-	}
 
-	return nil;
+	}
 }
