@@ -1,10 +1,8 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"log"
-	"time"
 
 	pb "github.com/devilzs1/grpc-go/proto"
 	"google.golang.org/grpc"
@@ -39,5 +37,7 @@ func main() {
 		Names: []string{"CodeForMe", "codeforus", "devilzs1"},
 	}
 	// callSayHello(client)
-	callSayHelloServerStream(client, names)
+	// callSayHelloServerStream(client, names)
+	callSayHelloClientStream(client, names)
+	callSayHelloBidirectionalStream(client, names)
 }
