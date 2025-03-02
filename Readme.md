@@ -158,6 +158,25 @@ A Go application containerized with Docker for deployment.
 - Includes a Dockerfile and instructions for building and running the app in Docker.
 - Focuses on deployment and containerization best practices.
 
+## 10. **Load Balancer**: Distributed Load Balancer
+A distributed load balancer that efficiently manages traffic distribution across multiple servers.
+
+- Implements a simple yet effective load balancing algorithm.
+- Supports round-robin, least connections, and other balancing strategies.
+- Can scale horizontally to handle large amounts of traffic efficiently.
+
+---
+
+## 11. **AWS Lambda Worker Pool**: Go Workers with DynamoDB and SQS
+An AWS Lambda function built using Go that processes jobs using a pool of worker goroutines and stores results in DynamoDB.
+
+- Demonstrates the use of AWS Lambda for serverless execution.
+- Utilizes Amazon SQS to queue jobs and AWS DynamoDB to store the results.
+- Implements a worker pool pattern with goroutines to handle jobs concurrently, improving throughput.
+- Includes proper error handling and logging for debugging and monitoring purposes.
+
+---
+
 
 Feel free to check the individual README files for more detailed information about each project. 
 
@@ -167,11 +186,28 @@ Feel free to check the individual README files for more detailed information abo
 
 This repository utilizes the following technologies and tools: 
 
-- **Go**: The core programming language. 
-- **gorilla/mux**: A powerful HTTP router for Go. 
-- **fiber**: A advanced web framework similar to Express for Go. 
-- **MongoDB**: NoSQL database used for some of the projects.  
-- **MySQL**: MySQL database used for some of the projects.  
+- **Go**: The core programming language for building the applications.
+- **AWS Lambda**: Serverless compute service used to run the Go functions in the cloud.
+- **AWS SQS**: Amazon Simple Queue Service, used to manage job queues.
+- **AWS DynamoDB**: Managed NoSQL database used to store processed job results.
+- **AWS SDK for Go**: AWS SDK to interact with various AWS services.
+- **goroutines**: Used to implement concurrency with worker pools for processing jobs in parallel.
+- **sync package**: Go's synchronization primitives to manage concurrency and worker coordination.
+- **context**: For managing request-scoped values in the AWS Lambda handler.
+- **json**: Standard Go package to parse and handle JSON job data.
+- **log**: Standard Go package used for logging information and errors.
+- **rand**: Standard Go package used to simulate random job processing times.
+- **time**: Standard Go package used to simulate job processing delays.
+- **Sarama (Kafka)**: A Go client for Apache Kafka, enabling messaging and event streaming.
+- **RabbitMQ**: Message broker used for sending and receiving messages between applications.
+- **Docker**: Containerization platform used for creating, deploying, and running applications.
+- **gRPC**: High-performance RPC framework for building APIs in Go.
+- **Protocol Buffers (Protobuf)**: Interface definition language used with gRPC for efficient serialization of structured data.
+- **GraphQL**: Query language for APIs that provides a more flexible and efficient alternative to RESTful services.
+- **MongoDB**: NoSQL database used for storing unstructured data in some of the projects.
+- **PostgreSQL**: Relational database management system used for structured data in some of the projects.
+- **gorilla/mux**: A powerful HTTP router and URL matcher for building web applications.
+- **fiber**: A fast web framework for Go inspired by Express.js, designed to handle high-performance APIs.
 
 --- 
 
